@@ -1,0 +1,3 @@
+targets:
+  graph-chat: shared-eu-west-1/cjeoymqbq52ft0163efovj7eq
+  default: graph-chat
