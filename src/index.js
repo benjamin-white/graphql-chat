@@ -13,36 +13,28 @@ import { WebSocketLink } from 'apollo-link-ws';
 import { getMainDefinition } from 'apollo-utilities';
 
 const wsLink = new WebSocketLink({
-
   uri: 'wss://subscriptions.graph.cool/v1/cjeoymqbq52ft0163efovj7eq',
   options: {
     reconnect: true
   }
-
 });
 
 const httpLink = new HttpLink({
-
   uri: 'https://api.graph.cool/simple/v1/cjeoymqbq52ft0163efovj7eq'
-
 });
 
 const link = split(
-
   ({ query }) => {
-    const { kind, operation } = getMainDefinition(query)
-    return kind === 'OperationDefinition' && operation === 'subscription'
+    const { kind, operation } = getMainDefinition(query);
+    return kind === 'OperationDefinition' && operation === 'subscription';
   },
   wsLink,
   httpLink
-
 );
 
 const client = new ApolloClient({
-
   link,
   cache: new InMemoryCache()
-
 });
 
 ReactDOM.render(
