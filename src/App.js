@@ -8,11 +8,10 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
-
   state = {
     from: 'anonymous',
     content: ''
-  }
+  };
 
   componentDidMount() {
     const from = window.prompt('username');
@@ -20,7 +19,6 @@ class App extends Component {
   }
 
   render() {
-
     const allChats = this.props.allChatsQuery.allChats || [];
 
     return (
@@ -33,9 +31,7 @@ class App extends Component {
         </div>
       </div>
     );
-
   }
-  
 }
 
 const ALL_CHATS_QUERY = gql`
