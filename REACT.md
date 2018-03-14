@@ -732,27 +732,6 @@ Keep in mind the downsides of this approach:
 * Missing files will not be called at compilation time, and will cause 404 errors for your users.
 * Result filenames won’t include content hashes so you’ll need to add query arguments or rename them every time they change.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ### When to Use the `public` Folder
 
 Normally we recommend importing [stylesheets](#adding-a-stylesheet), [images, and fonts](#adding-images-fonts-and-files) from JavaScript.
