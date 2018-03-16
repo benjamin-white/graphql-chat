@@ -64,7 +64,7 @@ class App extends Component {
     return (
       <div className="">
         <div className="container">
-          <h2>Chats</h2>
+          <img src={logo} /><h2>Chats</h2>
           {allChats.map(message => (
             <Chatbox key={message.id} message={message} />
           ))}
