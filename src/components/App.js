@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import { graphql, compose } from 'react-apollo';
 import gql from 'graphql-tag';
 
-import Chatbox from './components/Chatbox';
+import Chatbox from './chatbox/Chatbox';
+import Header  from './header/Header';
 
-import logo from './logo.svg';
+import logo from '../img/logo.svg';
 import './App.css';
 
 class App extends Component {
@@ -14,8 +15,7 @@ class App extends Component {
   };
 
   _createChat = async e => {
-    if (e.key === 'Enter') {
-      // how xBrowser is this?
+    if (e.key === 'Enter') { // how xBrowser is this?
       const { content, from } = this.state;
       await this.props.createChatMutation({
         variables: { content, from }
@@ -62,22 +62,26 @@ class App extends Component {
     const allChats = this.props.allChatsQuery.allChats || [];
 
     return (
-      <div className="">
+      <div className="page-wrapper">
         <div className="container">
-          <img src={logo} />
-          <h2>Chats</h2>
-          {allChats.map(message => (
-            <Chatbox key={message.id} message={message} />
-          ))}
 
-          {/* Message content input */}
+          <Header imgSrc={logo} title="Graph Chats" />
+
+          <main className="ChatFeed">
+            {allChats.map(message => (
+              <Chatbox key={message.id} message={message} />
+            ))}
+          </main>
+
+          {/* Message input */}
           <input
             value={this.state.content}
             onChange={e => this.setState({ content: e.target.value })}
             type="text"
-            placeholder="Start typing"
+            placeholder="Hit enter to submit"
             onKeyPress={this._createChat}
           />
+
         </div>
       </div>
     );
