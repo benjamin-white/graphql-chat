@@ -3,7 +3,7 @@ import { graphql, compose } from 'react-apollo';
 import gql from 'graphql-tag';
 
 import Chatbox from './chatbox/Chatbox';
-import Header  from './header/Header';
+import Header from './header/Header';
 
 import logo from '../img/logo.svg';
 import './App.css';
@@ -15,7 +15,8 @@ class App extends Component {
   };
 
   _createChat = async e => {
-    if (e.key === 'Enter') { // how xBrowser is this?
+    if (e.key === 'Enter') {
+      // how xBrowser is this?
       const { content, from } = this.state;
       await this.props.createChatMutation({
         variables: { content, from }
@@ -64,7 +65,6 @@ class App extends Component {
     return (
       <div className="page-wrapper">
         <div className="container">
-
           <Header imgSrc={logo} title="Graph Chats" />
 
           <main className="ChatFeed">
@@ -81,7 +81,6 @@ class App extends Component {
             placeholder="Hit enter to submit"
             onKeyPress={this._createChat}
           />
-
         </div>
       </div>
     );
