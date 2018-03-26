@@ -1,16 +1,17 @@
-h5 {
-  margin: 0;
-  padding: 0;
-  font-size: 14px;
-  font-weight: 600;
-  text-transform: uppercase;
-}
+$gray-med: #dedede !default;
 
-.chat-box {
-  background: #dedede;
+.ChatBox {
+  background: $gray-med;
   border-radius: 8px;
   margin-bottom: 10px;
   padding: 15px;
+  h5 {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
+    text-transform: uppercase;
+  }
   p {
     margin: 0;
   }
